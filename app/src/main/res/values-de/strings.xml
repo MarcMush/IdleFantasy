@@ -1590,7 +1590,7 @@
     <string name="elder_isle_dock_unlocked_cta">Stelle dich der Seeschlange</string>
     <string name="elder_isle_dock_unlocked_later">Später</string>
     <string name="boss_masked_name">\?\?\?</string>
-    <string name="boss_last_elder_masked_desc">Etwas uraltes schlummert in den Tiefen der Insel. Vereine die ältesten um es zu stellen</string>
+    <string name="boss_last_elder_masked_desc">Etwas uraltes schlummert in den Tiefen der Insel. Vereine die ältesten um es zu stellen.</string>
     <string name="elder_isle_welcome_title">Landfall on Elder Isle</string> <!-- untranslated -->
     <string name="elder_isle_welcome_body">The salt spray fades and the fog lifts. Ahead: a bone-white shore, a jungle laced with pale runes, and further in, smoke curling from a peak that shouldn\'t be smoking. The old sailors were right. Something ancient still lives here.\n\nYour mainland skills, boosts, and gear stay on the ship. Everything you level or craft on the isle grows a separate track of its own. Elder gear will carry back to the mainland; mainland power will not carry here.\n\nStart with the Skills tab. Head to Mining or Woodcutting to gather isle materials. Then check the Quests tab for your first objective, and open the Lore Master in town whenever a new fragment unlocks.</string> <!-- untranslated -->
     <string name="elder_isle_welcome_cta">Trete an Land</string>
@@ -1626,7 +1626,7 @@
     <string name="elder_isle_lore_master_title">Lore Master</string> <!-- untranslated -->
     <string name="elder_armor_missing_mats">Nicht genug Material.</string>
     <string name="elder_armor_crafted">%1$s hergestellt.</string>
-    <string name="elder_armor_queue_full">Herstellungskosten Warteschlange ist voll (3)</string>
+    <string name="elder_armor_queue_full">Herstellungskosten Warteschlange ist voll (3).</string>
     <string name="elder_armor_missing_stone">Du besitzt diesen Siegelstein nicht.</string>
     <string name="elder_armor_stone_embedded">Bette %1$s in %2$s ein.</string>
     <string name="elder_armor_sigil_embedder">Siegel Einbetter</string>
