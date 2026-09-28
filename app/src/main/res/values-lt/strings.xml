@@ -69,7 +69,7 @@
     <string name="bestiary_not_encountered">Dar Ne Sutikes</string>
     <string name="bestiary_filter_all">Visi</string>
     <string name="bestiary_filter_missing">Nesutikti</string>
-    <string name="bestiary_qty_header">"Vnt. "</string>
+    <string name="bestiary_qty_header">Vnt.</string>
     <string name="bestiary_chance_header">Šansas</string>
     <string name="label_completion_progress">%1$d / %2$d %3$s</string>
     <string name="achievements_progress_bar">obtained</string>
@@ -86,19 +86,19 @@
     <string name="label_session_active">Sesija dabar Aktyvi</string>
     <string name="label_no_active_session">Jokios Aktyvios Sesijos</string>
     <string name="label_session_complete">Sesija Pabaigta!</string>
-    <string name="home_sessions_complete_title">"%1$d Sesijos Pabaigtos! "</string>
+    <string name="home_sessions_complete_title">%1$d Sesijos Pabaigtos!</string>
     <string name="home_boss_defeated_title">Nugalėta %1$s!</string>
     <string name="home_boss_defeated_by_title">Nugalėtas %1$s.</string>
     <string name="home_dungeon_died_title">%1$s — Tu Mirei</string>
-    <string name="home_dungeon_complete_title">"%1$s Pabaigta! "</string>
+    <string name="home_dungeon_complete_title">%1$s Pabaigta!</string>
     <string name="home_expedition_complete_title">%1$s Ekspedicija Pabaigta</string>
     <string name="home_skill_session_complete_title">%1$s Sesija Pabaigta</string>
     <string name="home_bones_buried_row">%1$s užkastą</string>
     <string name="worker_sessions_complete_title">Darbininkas: %1$d Sesijos Pabaigtos!</string>
     <string name="worker_boss_defeated_title">Darbininkas: Nugalėta %1$s!</string>
     <string name="worker_dungeon_died_title">Darbininkas: %1$s — Mirė</string>
-    <string name="worker_dungeon_complete_title">Darbinkas: %1$s Pabaigtas!</string>
-    <string name="worker_skill_complete_title">Darbininkas: %1$s Pabaigas</string>
+    <string name="worker_dungeon_complete_title">Darbininkas: %1$s Pabaigtas!</string>
+    <string name="worker_skill_complete_title">Darbininkas: %1$s Pabaigtas</string>
     <string name="label_training">Treniruotis</string>
     <string name="label_gathering_skills">Rinkti</string>
     <string name="label_crafting_skills">Gaminimo Įgudžiai</string>
@@ -106,13 +106,13 @@
     <string name="label_coming_soon">Greitai Pasirodys</string>
     <string name="label_time_remaining">Liko Laiko</string>
     <!-- Translator note: compact duration units; English puts the letter(s) right after the number -->
-    <string name="duration_years">"%1$dmet. "</string>
-    <string name="duration_months">"%1$dmėn. "</string>
-    <string name="duration_weeks">"%1$dsav. "</string>
-    <string name="duration_days">"%1$dd. "</string>
-    <string name="duration_hours">"%1$dval. "</string>
-    <string name="duration_minutes">"%1$dmin. "</string>
-    <string name="duration_seconds">"%1$dsec. "</string>
+    <string name="duration_years">%1$dmet.</string>
+    <string name="duration_months">%1$dmėn.</string>
+    <string name="duration_weeks">%1$dsav.</string>
+    <string name="duration_days">%1$dd.</string>
+    <string name="duration_hours">%1$dval.</string>
+    <string name="duration_minutes">%1$dmin.</string>
+    <string name="duration_seconds">%1$dsec.</string>
     <string name="duration_complete">Pabaigta</string>
     <string name="label_session_results">Sesijos Rezultatas</string>
     <string name="label_xp_gained">XP surinktą</string>
@@ -282,7 +282,7 @@
     <string name="error_unknown">Something went wrong. Please try again.</string> <!-- untranslated -->
 
     <!-- ===== Session dialogs ===== -->
-    <string name="session_abandon_title">"Palikti Sesija? "</string>
+    <string name="session_abandon_title">Palikti Sesija?</string>
     <string name="session_abandon_body">All progress from this session will be lost.</string> <!-- untranslated -->
 
     <!-- ===== Onboarding ===== -->
