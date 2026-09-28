@@ -471,6 +471,7 @@
 
 
 
+
     <string name="settings_lang_system">System</string> <!-- untranslated -->
     <string name="settings_save_data">Save Data</string> <!-- untranslated -->
     <string name="settings_export">Export Save</string> <!-- untranslated -->
@@ -593,6 +594,7 @@
     <string name="combat_spell_locked">Requires Magic level %1$d</string> <!-- untranslated -->
     <string name="combat_spell_level_met">Magic level %1$d</string> <!-- untranslated -->
     <string name="combat_no_potion">No Potion</string> <!-- untranslated -->
+    <string name="label_potion">Potion</string> <!-- untranslated -->
     <string name="combat_req_level">Required combat level</string> <!-- untranslated -->
     <string name="combat_duration">Duration</string> <!-- untranslated -->
     <!-- Translator note: %1$d = minutes -->
@@ -1570,6 +1572,8 @@
     <string name="town_artisans_workshop_active_bonus">%1$d%% chance to preserve secondary crafting materials</string> <!-- untranslated -->
     <string name="town_building_chronos_spire_name">Chronos Spire</string> <!-- untranslated -->
     <string name="town_building_dock_name">Порт</string>
+    <string name="town_dock_no_bonus">Upgrade to sail to new locations</string> <!-- untranslated -->
+    <string name="town_dock_t1_bonus">Unlocks sailing to the Elder Isle</string> <!-- untranslated -->
     <string name="elder_isle_title">Elder Isle</string> <!-- untranslated -->
     <string name="elder_isle_sail_title">Sail to Elder Isle</string> <!-- untranslated -->
     <string name="elder_isle_zone_beach">Beach &amp; Cliffs</string> <!-- untranslated -->
