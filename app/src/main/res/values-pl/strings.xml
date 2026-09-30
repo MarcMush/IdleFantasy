@@ -701,6 +701,7 @@
     <!-- Translator note: %1$s = formatted multiplier (e.g. "1.15") -->
     <string name="skills_tool_bonus">×%1$s bonus narzędzia</string>
     <string name="skills_pet_bonus">+%1$d%% XP (zwierzak)</string>
+    <string name="skills_blessing_bonus">+%1$d%% XP (blessing)</string> <!-- untranslated -->
     <!-- Translator note: %1$d = fishing level -->
     <string name="skills_fishing_desc">Poziom %1$d  •  Połowy odpowiednie do poziomu</string>
     <!-- Translator note: %1$d = prayer level -->
@@ -1073,6 +1074,8 @@
     <string name="church_active_chip">Aktywne</string>
     <string name="church_activate">Aktywuj</string>
     <string name="church_blessing_bonus">+%1$s z błogosławieństwa</string>
+    <!-- Golden Goose pet coin share, split from the blessing line (issue #1941). Pending Weblate translation. -->
+    <string name="pet_coin_bonus">+%1$s from pet</string> <!-- untranslated -->
     <string name="church_blessing_suffix">z błogosławieństwa</string>
     <string name="church_effect_xp">×%1$.2f XP przez %2$d godz.</string>
     <string name="church_effect_def">+%1$d obrony przez %2$d godz.</string>

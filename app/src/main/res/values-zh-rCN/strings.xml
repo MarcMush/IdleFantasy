@@ -685,6 +685,7 @@
     <!-- Translator note: %1$s = formatted multiplier (e.g. "1.15") -->
     <string name="skills_tool_bonus">×%1$s 工具加成</string>
     <string name="skills_pet_bonus">+%1$d%% 经验（宠物）</string>
+    <string name="skills_blessing_bonus">+%1$d%% XP (blessing)</string> <!-- untranslated -->
     <!-- Translator note: %1$d = fishing level -->
     <string name="skills_fishing_desc">等级 %1$d  •  根据等级捕获鱼类</string>
     <!-- Translator note: %1$d = prayer level -->
@@ -1057,6 +1058,8 @@
     <string name="church_active_chip">生效中</string>
     <string name="church_activate">激活</string>
     <string name="church_blessing_bonus">祝福加成 +%1$s</string>
+    <!-- Golden Goose pet coin share, split from the blessing line (issue #1941). Pending Weblate translation. -->
+    <string name="pet_coin_bonus">+%1$s from pet</string> <!-- untranslated -->
     <string name="church_blessing_suffix">祝福加成</string>
     <string name="church_effect_xp">×%1$.2f 经验，持续 %2$d 小时</string>
     <string name="church_effect_def">+%1$d 防御，持续 %2$d 小时</string>

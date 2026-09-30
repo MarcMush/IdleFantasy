@@ -685,6 +685,7 @@
     <!-- Translator note: %1$s = formatted multiplier (e.g. "1.15") -->
     <string name="skills_tool_bonus">道具ボーナス ×%1$s</string>
     <string name="skills_pet_bonus">+%1$d%% 経験値 (ペット)</string>
+    <string name="skills_blessing_bonus">+%1$d%% XP (blessing)</string> <!-- untranslated -->
     <!-- Translator note: %1$d = fishing level -->
     <string name="skills_fishing_desc">レベル %1$d  •  レベルに応じた獲物</string>
     <!-- Translator note: %1$d = prayer level -->
@@ -1057,6 +1058,8 @@
     <string name="church_active_chip">有効中</string>
     <string name="church_activate">有効化</string>
     <string name="church_blessing_bonus">祝福ボーナス: +%1$s</string>
+    <!-- Golden Goose pet coin share, split from the blessing line (issue #1941). Pending Weblate translation. -->
+    <string name="pet_coin_bonus">+%1$s from pet</string> <!-- untranslated -->
     <string name="church_blessing_suffix">祝福より</string>
     <string name="church_effect_xp">%2$d 時間の間、経験値 ×%1$.2f</string>
     <string name="church_effect_def">%2$d 時間の間、防御 +%1$d</string>

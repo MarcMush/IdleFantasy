@@ -9,6 +9,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -956,6 +958,7 @@ private fun ActiveSessionBanner(
 // Skill row
 // ---------------------------------------------------------------------------
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 internal fun SkillRow(
     skillKey: String,
@@ -1076,32 +1079,33 @@ internal fun SkillRow(
         progress = progress,
         description = if (toolEfficiency > 1.0f || petBoostPct > 0 || blessingXpPct > 0) {
             {
-                Column(Modifier.fillMaxWidth()) {
-                    if (toolEfficiency > 1.0f || petBoostPct > 0) {
-                        Box(Modifier.fillMaxWidth()) {
-                            if (toolEfficiency > 1.0f) {
-                                Text(
-                                    text     = stringResource(R.string.skills_tool_bonus, "%.2f".format(toolEfficiency)),
-                                    style    = MaterialTheme.typography.labelSmall,
-                                    color    = MaterialTheme.colorScheme.primary,
-                                    modifier = Modifier.align(Alignment.CenterStart),
-                                )
-                            }
-                            if (petBoostPct > 0) {
-                                Text(
-                                    text     = stringResource(R.string.skills_pet_bonus, petBoostPct),
-                                    style    = MaterialTheme.typography.labelSmall,
-                                    color    = MaterialTheme.colorScheme.tertiary,
-                                    modifier = Modifier.align(Alignment.CenterEnd),
-                                )
-                            }
-                        }
+                // One bonus line: tool left, blessing middle, pet right. Wraps rather than
+                // overlapping when all three don't fit on narrow screens.
+                FlowRow(
+                    modifier              = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                ) {
+                    // Keeps a lone pet bonus right-aligned, where it has always sat.
+                    if (toolEfficiency <= 1.0f && blessingXpPct <= 0) Spacer(Modifier.width(0.dp))
+                    if (toolEfficiency > 1.0f) {
+                        Text(
+                            text  = stringResource(R.string.skills_tool_bonus, "%.2f".format(toolEfficiency)),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.primary,
+                        )
                     }
                     if (blessingXpPct > 0) {
                         Text(
-                            text  = stringResource(R.string.church_blessing_bonus, "$blessingXpPct% XP"),
+                            text  = stringResource(R.string.skills_blessing_bonus, blessingXpPct),
                             style = MaterialTheme.typography.labelSmall,
                             color = MaterialTheme.colorScheme.primary,
+                        )
+                    }
+                    if (petBoostPct > 0) {
+                        Text(
+                            text  = stringResource(R.string.skills_pet_bonus, petBoostPct),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.tertiary,
                         )
                     }
                 }

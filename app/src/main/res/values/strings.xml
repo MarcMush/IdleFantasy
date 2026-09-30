@@ -685,6 +685,7 @@
     <!-- Translator note: %1$s = formatted multiplier (e.g. "1.15") -->
     <string name="skills_tool_bonus">×%1$s tool bonus</string>
     <string name="skills_pet_bonus">+%1$d%% XP (pet)</string>
+    <string name="skills_blessing_bonus">+%1$d%% XP (blessing)</string>
     <!-- Translator note: %1$d = fishing level -->
     <string name="skills_fishing_desc">Level %1$d  •  Level-appropriate catches</string>
     <!-- Translator note: %1$d = prayer level -->
