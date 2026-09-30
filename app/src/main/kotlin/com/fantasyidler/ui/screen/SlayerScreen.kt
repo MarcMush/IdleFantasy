@@ -363,6 +363,15 @@ fun SlayerScreen(
                 }
             }
 
+            Button(
+                onClick  = viewModel::queueAllTaskDungeons,
+                enabled  = state.queueSize < state.maxQueueSize &&
+                    state.foretelledTasks.isNotEmpty(),
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Text(stringResource(R.string.slayer_add_all_dungeons_to_queue))
+            }
+
             Row(
                 modifier              = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
