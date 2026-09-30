@@ -127,6 +127,16 @@ private fun applyCombatCapeBonus(xpPerSkill: MutableMap<String, Long>, capeSkill
 // Session summary shown in the collect dialog
 // ---------------------------------------------------------------------------
 
+/**
+ * Splits a multiplied coin total into blessing and pet portions (issue #1941).
+ * The summed parts always equal the displayed total.
+ */
+internal fun splitCoinBonus(combined: Long, blessingMult: Float, petMult: Float): Pair<Long, Long> {
+    val total = (combined.toDouble() * (blessingMult * petMult)).toLong()
+    val blessing = (combined.toDouble() * blessingMult).toLong() - combined
+    return blessing to (total - combined - blessing)
+}
+
 data class SessionSummary(
     val title: String,
     val died: Boolean = false,
@@ -167,6 +177,8 @@ data class SessionSummary(
     val totalXpValue: Long = 0L,
     /** Extra coins granted by active prayer blessing — 0 if no blessing. */
     val coinBlessingBonus: Long = 0L,
+    /** Extra coins granted by the Golden Goose pet — 0 if no pet bonus. */
+    val coinPetBonus: Long = 0L,
     /** Expedition: highlighted lore note lines found during the session. */
     val noteLines: List<String> = emptyList(),
     /** Expedition: set when this collect triggered a new combat dungeon unlock. */
@@ -627,8 +639,9 @@ class HomeViewModel @Inject constructor(
             val boostFactorFor   = { skill: String -> boostRepo.xpBoostFactor(skill, flags) }
             val blessingCapeMult = blessingPrayerCapeMult(player, flags, gameData)
             val blessingXpMult   = if (flags.ironman) 1.0f else ChurchRepository.xpMultiplier(flags, blessingCapeMult, gameData.blessings)
-            val blessingCoinMult = if (flags.ironman) 1.0f else ChurchRepository.coinMultiplier(flags, blessingCapeMult, gameData.blessings) *
-                PlayerRepository.gooseCoinMultiplier(json.decodeFromString<List<OwnedPet>>(player.pets)).toFloat()
+            val blessingChurchCoinMult = if (flags.ironman) 1.0f else ChurchRepository.coinMultiplier(flags, blessingCapeMult, gameData.blessings)
+            val petCoinMult = if (flags.ironman) 1.0f else PlayerRepository.gooseCoinMultiplier(json.decodeFromString<List<OwnedPet>>(player.pets)).toFloat()
+            val blessingCoinMult = blessingChurchCoinMult * petCoinMult
 
             val ctx = CollectContext(flags, inventory, equippedCape, capeScalingBySkill, blessingCoinMult, petIds, player)
             val acc = CollectAcc()
@@ -752,7 +765,7 @@ class HomeViewModel @Inject constructor(
             }
 
             val displayedCoins    = (acc.combinedCoins.toDouble() * blessingCoinMult).toLong()
-            val coinBlessingBonus = displayedCoins - acc.combinedCoins
+            val (coinBlessingBonus, coinPetBonus) = splitCoinBonus(acc.combinedCoins, blessingChurchCoinMult, petCoinMult)
             val sortedXpEntries   = acc.combinedXpBySkill.entries.sortedByDescending { it.value }
             val singleXpFactor    = acc.combinedXpBySkill.keys.firstOrNull()?.let(boostFactorFor) ?: 1L
             val xpLineBonuses     = sortedXpEntries.map { (skill, xp) ->
@@ -798,6 +811,7 @@ class HomeViewModel @Inject constructor(
                 totalXpBoostFactor = if (useTotalLabel) singleXpFactor else 1L,
                 xpLineBonuses    = xpLineBonuses,
                 coinBlessingBonus = coinBlessingBonus,
+                coinPetBonus      = coinPetBonus,
                 noteLines        = acc.expeditionNoteLines +
                                      (if (acc.bossCoinsReduced) listOf(context.withAppLocale().getString(R.string.session_note_boss_coin_cap)) else emptyList()),
                 unlockMessage    = acc.expeditionUnlockMessage,
@@ -1526,8 +1540,9 @@ class HomeViewModel @Inject constructor(
             val boostFactorFor   = { skill: String -> boostRepo.xpBoostFactor(skill, flags) }
             val workerCapeMult   = blessingPrayerCapeMult(workerPlayer, flags, gameData)
             val blessingXpMult   = if (flags.ironman) 1.0f else ChurchRepository.xpMultiplier(flags, workerCapeMult, gameData.blessings)
-            val blessingCoinMult = if (flags.ironman) 1.0f else ChurchRepository.coinMultiplier(flags, workerCapeMult, gameData.blessings) *
-                PlayerRepository.gooseCoinMultiplier(json.decodeFromString<List<OwnedPet>>(workerPlayer.pets)).toFloat()
+            val blessingChurchCoinMult = if (flags.ironman) 1.0f else ChurchRepository.coinMultiplier(flags, workerCapeMult, gameData.blessings)
+            val petCoinMult = if (flags.ironman) 1.0f else PlayerRepository.gooseCoinMultiplier(json.decodeFromString<List<OwnedPet>>(workerPlayer.pets)).toFloat()
+            val blessingCoinMult = blessingChurchCoinMult * petCoinMult
             val innXpMult        = townRepo.workerXpMultiplier(flags)
             val workerOwnedPets: List<OwnedPet> = if (flags.ironman) emptyList()
                 else try { json.decodeFromString(workerPlayer.pets) } catch (_: Exception) { emptyList() }
@@ -1705,7 +1720,7 @@ class HomeViewModel @Inject constructor(
             val useTotalLabel    = n == 1 && combinedXpBySkill.size == 1 && combinedKills.isEmpty()
             val singleXp         = combinedXpBySkill.values.firstOrNull() ?: 0L
             val displayedCoins   = (combinedCoins.toDouble() * blessingCoinMult).toLong()
-            val coinBlessingBonus = displayedCoins - combinedCoins
+            val (coinBlessingBonus, coinPetBonus) = splitCoinBonus(combinedCoins, blessingChurchCoinMult, petCoinMult)
             val sortedXpEntries   = combinedXpBySkill.entries.sortedByDescending { it.value }
             val singleXpFactor    = combinedXpBySkill.keys.firstOrNull()?.let(boostFactorFor) ?: 1L
             val xpLineBonuses     = sortedXpEntries.map { (skill, xp) ->
@@ -1741,6 +1756,7 @@ class HomeViewModel @Inject constructor(
                 totalXpBoostFactor = if (useTotalLabel) singleXpFactor else 1L,
                 xpLineBonuses    = xpLineBonuses,
                 coinBlessingBonus = coinBlessingBonus,
+                coinPetBonus      = coinPetBonus,
             )
 
             val capeMessage = if (awardedCapes.isNotEmpty()) {
