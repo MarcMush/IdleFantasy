@@ -325,6 +325,8 @@
     <string name="settings_profile_layout_tabs">Záložky</string>
     <string name="settings_quest_dots">Upozornění na úkol na dovednostech</string>
     <string name="settings_quest_dots_desc">Zobrazit zlatou tečku na dovednostech, kde jsou možné úkoly</string>
+    <string name="settings_monument_touch_indicator">Monument touch indicator</string> <!-- untranslated -->
+    <string name="settings_monument_touch_indicator_desc">Show a dot on the Grand Monument on Home when the daily touch is available</string> <!-- untranslated -->
     <string name="settings_prestige_notifications">Upozornění na možné povýšení</string>
     <string name="settings_prestige_notifications_desc">Zobrazit upozornění v navigaci, když je dovednost připravena k povýšení</string>
     <string name="label_switch_character">Přepnout postavu</string>
@@ -1079,6 +1081,8 @@
     <string name="church_bones_available">You have %1$d bones on hand — worth %2$d toward blessings (bigger bones count for more)</string> <!-- untranslated -->
     <string name="church_not_enough_bones">Not enough bones (need %1$d)</string> <!-- untranslated -->
     <string name="church_already_active">Již máš aktivní požehnání</string>
+    <string name="church_blessing_activated">Blessing activated!</string> <!-- untranslated -->
+    <string name="church_blessing_extended">Blessing extended!</string> <!-- untranslated -->
     <string name="church_confirm_deactivate_title">Deactivate Blessing?</string> <!-- untranslated -->
     <string name="church_confirm_deactivate_body">Are you sure you want to deactivate your active blessing? You will not get your bones back.</string> <!-- untranslated -->
 

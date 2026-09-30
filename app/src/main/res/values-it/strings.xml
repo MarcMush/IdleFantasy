@@ -313,6 +313,8 @@
     <string name="settings_profile_layout_tabs">Schede</string>
     <string name="settings_quest_dots">Indicatori missione</string>
     <string name="settings_quest_dots_desc">Mostra un indicatore quando una missione è disponibile</string>
+    <string name="settings_monument_touch_indicator">Monument touch indicator</string> <!-- untranslated -->
+    <string name="settings_monument_touch_indicator_desc">Show a dot on the Grand Monument on Home when the daily touch is available</string> <!-- untranslated -->
     <string name="settings_prestige_notifications">Indicatori Onore</string>
     <string name="settings_prestige_notifications_desc">Mostra un indicatore quando una abilità può essere onorata</string>
     <string name="label_switch_character">Cambia personaggio</string>
@@ -1064,6 +1066,8 @@
     <string name="church_bones_available">Hai %1$d ossa, pari a %2$d per le benedizioni (le ossa più grandi valgono più)</string>
     <string name="church_not_enough_bones">Non hai abbastanza ossa (ne servono %1$d)</string>
     <string name="church_already_active">Una benedizione è già attiva</string>
+    <string name="church_blessing_activated">Blessing activated!</string> <!-- untranslated -->
+    <string name="church_blessing_extended">Blessing extended!</string> <!-- untranslated -->
     <string name="church_confirm_deactivate_title">Interrompere la benedizione?</string>
     <string name="church_confirm_deactivate_body">Sei sicuro di voler interrompere la benedizione attiva? Le ossa non verranno restituite.</string>
 
