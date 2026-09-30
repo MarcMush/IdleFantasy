@@ -71,6 +71,25 @@ internal fun queuedActionRequiredLevel(action: QueuedAction, gameData: GameDataR
 }
 
 /**
+ * The player's level for [action]'s level gate. Isle actions gate on isle levels, like
+ * their manual starts, so a prestiged mainland level can't drop a queued isle session
+ * (issue #1970).
+ */
+internal fun queuedActionCurrentLevel(
+    action: QueuedAction,
+    levels: Map<String, Int>,
+    elderLevels: Map<String, Int>,
+    gameData: GameDataRepository,
+): Int {
+    val gateLevels = combatLevelsFor(action.isElderSession, levels, elderLevels)
+    return when (action.skillName) {
+        "boss", "combat", "tower" -> combatLevelFrom(gateLevels)
+        "expedition" -> gameData.skillingDungeons[action.activityKey]?.skill?.let { gateLevels[it] } ?: 1
+        else -> gateLevels[action.skillName] ?: 1
+    }
+}
+
+/**
  * Combat levels for a queued dungeon run. Isle sessions must run on isle
  * levels, mainland sessions on mainland levels (issue #1928; boss branch
  * already does this since v1.15.5).
@@ -433,11 +452,7 @@ class QueuedSessionStarter @Inject constructor(
         // level (it simulates with post-prestige stats, so nothing is laundered); no longer
         // qualifying drops the action. Activities without a known level gate keep the
         // queue-time floor, so their pre-prestige plans still pay out with XP zeroed.
-        val currentLevel = when (action.skillName) {
-            "boss", "combat", "tower" -> combatLevelFrom(levels)
-            "expedition" -> gameData.skillingDungeons[action.activityKey]?.skill?.let { levels[it] } ?: 1
-            else -> levels[action.skillName] ?: 1
-        }
+        val currentLevel = queuedActionCurrentLevel(action, levels, flags.elderSkillLevels, gameData)
         val requiredLevel = queuedActionRequiredLevel(action, gameData)
         val levelAtStart = when {
             requiredLevel == null        -> maxOf(currentLevel, action.levelAtQueue)

@@ -14,4 +14,6 @@
 • Fixed carnival game names showing in English in the queue and banner
 • Fixed Slayer shop stats and requirements showing in English
 • Fixed Elder Isle dungeon descriptions claiming guaranteed Ancient Sigil drops
+• Fixed boss fights that ran out of time picking the winner without counting damage already dealt
+• Fixed queued Elder Isle sessions being dropped when your mainland level was below the requirement
 • Updated Italian translations

@@ -2080,6 +2080,9 @@ fun isSkillSessionStillEligible(
     currentLevels: Map<String, Int>,
     gameData: GameDataRepository,
 ): Boolean {
+    // Isle levels have no prestige and never drop, and levelAtStart for isle sessions is
+    // an isle level, so comparing it to mainland levels would void their XP (issue #1970).
+    if (session.isElderSession) return true
     val currentLevel = when (session.skillName) {
         "boss", "combat", "tower" -> combatLevelFrom(currentLevels)
         "expedition" -> gameData.skillingDungeons[session.activityKey]?.skill?.let { currentLevels[it] } ?: 1
