@@ -1382,6 +1382,8 @@
     <string name="slayer_add_all_dungeons_to_queue">Add All Dungeons to Queue</string> <!-- untranslated -->
     <string name="slayer_queue_added">キューに追加: %1$s</string>
     <string name="slayer_queue_full">キューが満杯です。</string>
+    <string name="slayer_queue_added_many">Added %1$d dungeons to queue.</string> <!-- untranslated -->
+    <string name="slayer_queue_added_partial">Added %1$d of %2$d dungeons to queue.</string> <!-- untranslated -->
     <string name="slayer_foretell_title">任務の予言</string>
     <string name="slayer_foretell_desc">骨を捧げることで、次回のスレイヤー任務を予約できます。現在の任務が完了すると自動的に割り当てられます。</string>
     <string name="slayer_foretell_queue_empty">予約された任務はありません。</string>

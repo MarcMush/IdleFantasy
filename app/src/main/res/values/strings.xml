@@ -1382,6 +1382,8 @@
     <string name="slayer_add_all_dungeons_to_queue">Add All Dungeons to Queue</string>
     <string name="slayer_queue_added">Added to queue: %1$s.</string>
     <string name="slayer_queue_full">Queue is full.</string>
+    <string name="slayer_queue_added_many">Added %1$d dungeons to queue.</string>
+    <string name="slayer_queue_added_partial">Added %1$d of %2$d dungeons to queue.</string>
     <string name="slayer_foretell_title">Foretell Future Tasks</string>
     <string name="slayer_foretell_desc">Pre-assign upcoming Slayer tasks by paying bones. They are assigned automatically when your current task is completed.</string>
     <string name="slayer_foretell_queue_empty">No tasks queued.</string>

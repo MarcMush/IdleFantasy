@@ -1382,6 +1382,8 @@
     <string name="slayer_add_all_dungeons_to_queue">Add All Dungeons to Queue</string> <!-- untranslated -->
     <string name="slayer_queue_added">已加入队列：%1$s。</string>
     <string name="slayer_queue_full">队列已满。</string>
+    <string name="slayer_queue_added_many">Added %1$d dungeons to queue.</string> <!-- untranslated -->
+    <string name="slayer_queue_added_partial">Added %1$d of %2$d dungeons to queue.</string> <!-- untranslated -->
     <string name="slayer_foretell_title">预知未来任务</string>
     <string name="slayer_foretell_desc">支付骸骨来预分配后续讨伐任务。当前任务完成后自动分配。</string>
     <string name="slayer_foretell_queue_empty">暂无排队任务。</string>

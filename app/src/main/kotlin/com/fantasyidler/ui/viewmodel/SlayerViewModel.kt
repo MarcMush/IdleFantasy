@@ -408,6 +408,9 @@ class SlayerViewModel @Inject constructor(
             // Finish an accepted batch even if navigating back clears this ViewModel.
             // Dungeon previews simulate combat, so keep this work off the UI thread.
             withContext(NonCancellable + Dispatchers.Default) {
+                // One snackbar for the whole batch; also reports a batch the timeout cut short.
+                val added = mutableListOf<String>()
+                var queueFull = false
                 withTimeoutOrNull(10_000L) {
                     // Persist an explicit picker choice app-wide like the Combat screen's
                     // selectWeaponSlot does, before reading player state so the queued
@@ -462,16 +465,23 @@ class SlayerViewModel @Inject constructor(
                                 weaponSlot          = resolvedWeaponSlot,
                             )
                         )
-                        if (enqueued) queuedSessionStarter.startNextQueued()
-                        _extra.update {
-                            it.copy(
-                                snackbarMessage = if (enqueued) context.withAppLocale().getString(R.string.slayer_queue_added, dungeonName)
-                                                  else context.withAppLocale().getString(R.string.slayer_queue_full)
-                            )
+                        if (!enqueued) {
+                            queueFull = true
+                            break
                         }
-                        if (!enqueued) break
+                        queuedSessionStarter.startNextQueued()
+                        added += dungeonName
                     }
                 }
+                val ctx = context.withAppLocale()
+                val message = when {
+                    added.isEmpty() && queueFull -> ctx.getString(R.string.slayer_queue_full)
+                    added.isEmpty()              -> null
+                    added.size < dungeonKeys.size -> ctx.getString(R.string.slayer_queue_added_partial, added.size, dungeonKeys.size)
+                    added.size == 1              -> ctx.getString(R.string.slayer_queue_added, added.first())
+                    else                         -> ctx.getString(R.string.slayer_queue_added_many, added.size)
+                }
+                if (message != null) _extra.update { it.copy(snackbarMessage = message) }
             }
         }
     }

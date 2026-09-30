@@ -1400,6 +1400,8 @@
     <string name="slayer_add_all_dungeons_to_queue">Add All Dungeons to Queue</string> <!-- untranslated -->
     <string name="slayer_queue_added">Добавлено в очередь: %1$s.</string>
     <string name="slayer_queue_full">Очередь заполнена.</string>
+    <string name="slayer_queue_added_many">Added %1$d dungeons to queue.</string> <!-- untranslated -->
+    <string name="slayer_queue_added_partial">Added %1$d of %2$d dungeons to queue.</string> <!-- untranslated -->
     <string name="slayer_foretell_title">Предсказать будущую цель</string>
     <string name="slayer_foretell_desc">Предварительно планируйте предстоящие задания убийцы, платя костьми. Назначение происходит автоматически после выполнения вашей текущей задачи.</string>
     <string name="slayer_foretell_queue_empty">Нет задач в очереди.</string>

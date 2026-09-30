@@ -1382,6 +1382,8 @@
     <string name="slayer_add_all_dungeons_to_queue">Add All Dungeons to Queue</string> <!-- untranslated -->
     <string name="slayer_queue_added">Adicionado à fila: %1$s.</string>
     <string name="slayer_queue_full">A fila está cheia.</string>
+    <string name="slayer_queue_added_many">Added %1$d dungeons to queue.</string> <!-- untranslated -->
+    <string name="slayer_queue_added_partial">Added %1$d of %2$d dungeons to queue.</string> <!-- untranslated -->
     <string name="slayer_foretell_title">Prever Tarefas Futuras</string>
     <string name="slayer_foretell_desc">Reserve tarefas de Extermínio futuras pagando com ossos. Elas são atribuídas automaticamente quando sua tarefa atual for concluída.</string>
     <string name="slayer_foretell_queue_empty">Nenhuma tarefa na fila.</string>

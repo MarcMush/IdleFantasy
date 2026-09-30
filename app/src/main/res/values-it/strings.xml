@@ -1382,6 +1382,8 @@
     <string name="slayer_add_all_dungeons_to_queue">Add All Dungeons to Queue</string> <!-- untranslated -->
     <string name="slayer_queue_added">Aggiunto alla coda: %1$s.</string>
     <string name="slayer_queue_full">La coda è piena.</string>
+    <string name="slayer_queue_added_many">Added %1$d dungeons to queue.</string> <!-- untranslated -->
+    <string name="slayer_queue_added_partial">Added %1$d of %2$d dungeons to queue.</string> <!-- untranslated -->
     <string name="slayer_foretell_title">Divina il prossimo incarico</string>
     <string name="slayer_foretell_desc">Assegna automaticamente il prossimo incarico usando ossa. Inizierà al termine del tuo incarico attuale.</string>
     <string name="slayer_foretell_queue_empty">Nessun incarico in coda.</string>

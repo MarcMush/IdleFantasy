@@ -1382,6 +1382,8 @@
     <string name="slayer_add_all_dungeons_to_queue">Add All Dungeons to Queue</string> <!-- untranslated -->
     <string name="slayer_queue_added">Añadido a la cola: %1$s.</string>
     <string name="slayer_queue_full">La cola está llena.</string>
+    <string name="slayer_queue_added_many">Added %1$d dungeons to queue.</string> <!-- untranslated -->
+    <string name="slayer_queue_added_partial">Added %1$d of %2$d dungeons to queue.</string> <!-- untranslated -->
     <string name="slayer_foretell_title">Predecir Tareas Futuras</string>
     <string name="slayer_foretell_desc">Asigna por adelantado próximas tareas de Slayer pagando huesos. Se asignan solas cuando completes la tarea actual.</string>
     <string name="slayer_foretell_queue_empty">Sin tareas en cola.</string>
